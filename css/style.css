@@ -342,4 +342,21 @@ a:hover {
   text-decoration: none;
 }
 
+/* ============================
+   Section Visual Separation
+   ============================ */
+
+/* Pillars section visual distinction */
+.pillars {
+  background-color: #f8fafc;
+  padding: 30px 24px;
+  margin: 60px -20px;
+  border-radius: 8px;
+}
+
+/* Keep cards clean inside pillars */
+.pillars .article-card {
+  background-color: #ffffff;
+}
+
 
