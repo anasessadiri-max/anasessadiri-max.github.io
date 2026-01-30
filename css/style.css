@@ -1,52 +1,82 @@
-/* Reset */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base */
+/* =========================
+   ROOT COLORS
+========================= */
+:root {
+  --bg-main: #f4f7fb;
+  --bg-white: #ffffff;
+  --primary: #2563eb;
+  --secondary: #0f172a;
+  --accent: #22c55e;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-soft: #e2e8f0;
+}
+
+/* =========================
+   BASE
+========================= */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background-color: #ffffff;
-  color: #1f2933;
-  line-height: 1.8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.75;
   font-size: 16px;
 }
 
 a {
-  color: #1a73e8;
+  color: var(--primary);
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #1558b0;
   text-decoration: underline;
 }
 
-/* Layout */
+/* =========================
+   LAYOUT
+========================= */
 .container {
-  max-width: 760px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px;
 }
 
-/* Header */
-.site-header h1 {
-  font-size: 30px;
-  font-weight: 600;
-  color:#1558b0;
-  margin-bottom: 4px;
+/* =========================
+   HEADER (NEW DESIGN)
+========================= */
+.site-header {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 70px 0 60px;
+  margin-bottom: 70px;
+}
 
+.site-header .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.site-header h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #ffffff;
+  max-width: 720px;
+  line-height: 1.25;
 }
 
 .site-title {
-  font-size: 20px;
-  font-weight: 400;
-  color: #555;
-  font-weight: bold;
-  
+  font-size: 18px;
+  color: #93c5fd;
+  font-weight: 600;
 }
 
 .nav {
@@ -54,76 +84,124 @@ a:hover {
 }
 
 .nav a {
-  margin-right: 18px;
-  font-size: 14px;
-  color: #4b5563;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 500;
+  color: #c7d2fe;
+  margin-right: 22px;
 }
 
 .nav a:hover {
-  color: #1a73e8;
+  color: #ffffff;
 }
 
-/* Intro */
+/* =========================
+   INTRO / HERO
+========================= */
 .intro {
-  margin-bottom: 40px;
+  background: var(--bg-white);
+  padding: 36px;
+  border-radius: 14px;
+  margin-bottom: 70px;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
 }
 
 .intro h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 14px;
 }
 
-/* Articles list */
+.intro p {
+  color: var(--text-muted);
+  max-width: 760px;
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--secondary);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* =========================
+   PILLARS SECTION
+========================= */
+.pillars {
+  margin-bottom: 90px;
+}
+
+/* =========================
+   GRID + CARDS (NEW)
+========================= */
 .articles-list {
   display: grid;
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
 }
 
 .article-card {
-  padding: 18px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  background-color: #ffffff;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background: var(--bg-white);
+  padding: 26px;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .article-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 50px rgba(15, 23, 42, 0.14);
 }
 
 .article-card h3 {
   font-size: 18px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .article-card p {
   font-size: 14px;
-  color: #4b5563;
+  color: var(--text-muted);
 }
 
-/* Article content */
+/* =========================
+   ARTICLE CONTENT
+========================= */
 .article-content h1 {
-  font-size: 30px;
-  margin-bottom: 18px;
-  line-height: 1.3;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 24px;
 }
 
 .article-content h2 {
-  font-size: 22px;
-  margin-top: 40px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  border-left: 5px solid var(--primary);
+  padding-left: 14px;
 }
 
 .article-content h3 {
-  font-size: 18px;
-  margin-top: 25px;
-  margin-bottom: 8px;
+  font-size: 19px;
+  margin-top: 32px;
+  margin-bottom: 10px;
 }
 
 .article-content p,
 .article-content ul {
+  max-width: 760px;
   margin-bottom: 18px;
 }
 
@@ -132,307 +210,107 @@ a:hover {
 }
 
 .article-content li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* Quick answer */
+/* =========================
+   QUICK ANSWER
+========================= */
 .quick-answer {
-  background: #f8fafc;
-  padding: 18px;
-  border-left: 4px solid #1a73e8;
-  margin-bottom: 30px;
+  background: #ecfeff;
+  border-left: 5px solid #06b6d4;
+  padding: 22px;
+  border-radius: 10px;
   font-size: 15px;
+  margin-bottom: 40px;
 }
 
-/* Ads */
+/* =========================
+   ADS
+========================= */
 .ad-box {
-  margin: 35px 0;
-  padding: 24px;
-  background: #f9fafb;
-  border: 1px dashed #d1d5db;
+  margin: 50px 0;
+  padding: 28px;
+  background: #f1f5f9;
+  border-radius: 14px;
   text-align: center;
+  color: var(--text-muted);
   font-size: 14px;
-  color: #6b7280;
 }
 
-/* FAQ */
-.faq {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid #e5e7eb;
+/* =========================
+   BROWSE ALL
+========================= */
+.browse-all {
+  margin: 70px 0;
+  text-align: center;
 }
 
-.faq h2 {
-  font-size: 22px;
-  margin-bottom: 15px;
+.browse-all a {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
-.faq h3 {
-  font-size: 17px;
-  margin-top: 18px;
-  cursor: pointer;
+.browse-all a:hover {
+  background: #1d4ed8;
+  text-decoration: none;
 }
 
-.faq p {
-  font-size: 15px;
-  color: #4b5563;
+/* =========================
+   SEO CONTEXT
+========================= */
+.intro.seo-context {
+  background: var(--bg-white);
+  border-left: 6px solid var(--accent);
+  padding: 30px;
+  border-radius: 14px;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 .site-footer {
-  margin-top: 60px;
-  padding: 25px 0;
-  border-top: 1px solid #e5e7eb;
-  font-size: 14px;
-  color: #6b7280;
+  background: #020617;
+  padding: 50px 0;
+  margin-top: 90px;
   text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
-/* Mobile */
+.site-footer a {
+  color: #c7d2fe;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 600px) {
-  body {
-    font-size: 15px;
+  .site-header h1 {
+    font-size: 28px;
   }
 
-  .site-title {
+  .section-title {
     font-size: 22px;
   }
 
   .article-content h1 {
-    font-size: 26px;
-  }
-
-  .article-content h2 {
-    font-size: 20px;
-  }
-}
-/* SEO context section */
-.intro.seo-context {
-  background-color: #f8fafc;
-  border-left: 4px solid #1a73e8;
-  padding: 22px 24px;
-  margin-top: 60px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-}
-
-.intro.seo-context p {
-  font-size: 15px;
-  color: #374151;
-  max-width: 680px;
-}
-
-.section-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #222;
-  margin: 2.5rem 0 1.5rem;
-  padding-left: 0.75rem;
-  border-left: 4px solid #2c7be5;
-  line-height: 1.3;
-}
-
-
-
-/* ============================
-   Pillar Pages Styling
-   ============================ */
-
-/* Page title (H1) */
-.article-content h1 {
-  font-size: 34px;
-  line-height: 1.25;
-  margin-bottom: 10px;
-  color: #111827;
-  font-weight: 700;
-}
-
-/* Subtitle under H1 */
-.article-content .site-title {
-  font-size: 16px;
-  color: #6b7280;
-  margin-bottom: 40px;
-  font-style: italic;
-}
-
-/* Section spacing */
-.article-content section {
-  margin-bottom: 45px;
-}
-
-/* Section headings (H2) */
-.article-content h2 {
-  font-size: 22px;
-  margin-bottom: 14px;
-  padding-left: 12px;
-  border-left: 4px solid #1a73e8;
-  color: #111827;
-  font-weight: 600;
-}
-
-/* Paragraphs */
-.article-content p {
-  font-size: 16px;
-  line-height: 1.85;
-  color: #374151;
-  max-width: 680px;
-}
-
-/* Lists */
-.article-content ul {
-  margin-top: 10px;
-  padding-left: 22px;
-  max-width: 680px;
-}
-
-.article-content li {
-  margin-bottom: 10px;
-  line-height: 1.7;
-  color: #374151;
-}
-
-/* Guide links inside pillars */
-.article-content ul li a {
-  color: #1a73e8;
-  font-weight: 500;
-}
-
-.article-content ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Visual separation (optional but classy) */
-.article-content section:not(:last-child) {
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 35px;
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-  .article-content h1 {
     font-size: 28px;
   }
-
-  .article-content h2 {
-    font-size: 20px;
-  }
-
-  .article-content p,
-  .article-content li {
-    font-size: 15px;
-  }
 }
-
-
-/* Browse all articles link */
-.browse-all {
-  margin-top: 32px;
-  font-size: 15px;
-}
-
-.browse-all a {
-  display: inline-block;
-  padding: 10px 14px;
-  border-left: 4px solid #1a73e8;
-  background-color: #f8fafc;
-  color: #1a73e8;
-  font-weight: 500;
-}
-
-.browse-all a:hover {
-  background-color: #eef4ff;
-  text-decoration: none;
-}
-
-/* ============================
-   Section Visual Separation
-   ============================ */
-
-/* Pillars section visual distinction */
-.pillars {
-  background-color: #f8fafc;
-  padding: 30px 24px;
-  margin: 60px -20px;
-  border-radius: 8px;
-}
-
-/* Keep cards clean inside pillars */
-.pillars .article-card {
-  background-color: #ffffff;
-}
-
-
-
-/* ============================
-   Strong Colored Header
-   ============================ */
-
-.site-header {
-  background: linear-gradient(135deg, #1e80ff, #0c3974);
-  padding: 36px 0 26px;
-  margin-bottom: 50px;
-}
-
-/* Layout inside header */
-.site-header .container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Main headline */
-.site-header h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.25;
-  margin: 0;
-  
-}
-
-/* Site name */
-.site-title {
-  font-size: 20px;
-  font-weight: 600;
-  color:rgb(41, 255, 255);
- 
-  letter-spacing: 0.6px;
-  margin: 0;
-  font-weight: bold;
-}
-
-/* Navigation */
-.nav {
-  margin-top: 16px;
-}
-
-.nav a {
-  font-size: 15px;
-  font-weight: 500;
-  color: #e5efff;
-  margin-right: 20px;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-}
-
-.nav a:hover {
-  color: #ffffff;
-}
-@media (max-width: 600px) {
-  .site-header {
-    padding: 30px 0 22px;
-  }
-
-  .site-header h1 {
-    font-size: 26px;
-  }
-
-  .site-title {
-    font-size: 15px;
-  }
-
-  .nav a {
-    font-size: 13px;
-    margin-right: 14px;
-  }
+.ad-box {
+  margin: 50px 0;
+  padding: 28px;
+  background: #b7fcd0;
+  border-radius: 14px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
 }
