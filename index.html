@@ -61,7 +61,21 @@
 </script>
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.querySelector('.intro-toggle');
+    const moreText = document.querySelector('.intro-more');
 
+    if (toggleBtn && moreText) {
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = moreText.style.display === 'block';
+
+        moreText.style.display = isOpen ? 'none' : 'block';
+        toggleBtn.textContent = isOpen ? 'Read more' : 'Read less';
+      });
+    }
+  });
+</script>
 </head>
 <body>
 
@@ -85,17 +99,26 @@
   <!-- Main -->
   <main class="container">
 
+ 
     <!-- HERO / SEO CONTEXT -->
-    <section class="intro">
-      <h2>Understand and Fix Common Home Problems</h2>
-    <p>
-  HomeFix Guide is a specialized resource that explains common household problems and how to fix them safely and effectively.
-  Our content focuses on identifying the real causes behind issues such as bad smells, humidity, and high energy bills,
-  then presenting practical, research-based solutions and clear guidance on what works, what doesn’t,
-  and when professional help may be needed.
-</p>
+ <section class="intro">
+  <h2>Understand and Fix Common Home Problems</h2>
 
-    </section>
+  <p class="intro-summary">
+    Clear explanations that help you understand home problems before they become costly or unsafe.
+  </p>
+
+  <div class="intro-more">
+    <p>
+      HomeFix Guide is a specialized resource that explains common household problems and how to fix them safely and effectively.
+      Our content focuses on identifying the real causes behind issues such as bad smells, humidity, and high energy bills,
+      then presenting practical, research-based solutions and clear guidance on what works, what doesn’t,
+      and when professional help may be needed.
+    </p>
+  </div>
+
+  <button class="intro-toggle">Read more</button>
+</section>
 
       <!-- START HERE -->
 <section class="start-here">
@@ -212,6 +235,7 @@
 
 </body>
 </html>
+
 
 
 
