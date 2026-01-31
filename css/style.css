@@ -314,3 +314,93 @@ a:hover {
   color: var(--text-muted);
   font-size: 14px;
 }
+
+
+/* =========================
+   START HERE (HIGH-UX)
+========================= */
+
+.start-here {
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 46px 32px;
+  margin-bottom: 70px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative accent */
+.start-here::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle,  transparent 70%);
+}
+
+/* Title */
+.start-here h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+/* Main text */
+.start-here-text {
+  font-size: 20px;
+  color: #475569;
+  max-width: 620px;
+  margin: 0 auto 18px;
+  line-height: 1.7;
+}
+
+/* Hint */
+.start-here-hint {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2563eb;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Animated arrow */
+.start-here-hint::after {
+  content: "↓";
+  font-size: 25px;
+  animation: bounceDown 1.6s infinite;
+}
+
+/* Subtle animation */
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .start-here {
+    padding: 36px 22px;
+  }
+
+  .start-here h2 {
+    font-size: 24px;
+  }
+
+  .start-here-text {
+    font-size: 16px;
+  }
+}
+
