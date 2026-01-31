@@ -562,3 +562,26 @@ a:hover {
 #searchResults a:hover {
   text-decoration: underline;
 }
+/* =========================
+   ARTICLE IMAGE
+========================= */
+
+.article-image {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.article-image img {
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+}
+
+.article-image figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
