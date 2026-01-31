@@ -12,6 +12,81 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+const articles = [
+
+  // Bad Smells in Homes
+  { title: "Why Does My Room Smell Bad at Night?", url: "room-smells-bad-at-night.html" },
+  { title: "Why Does My House Smell Bad Even When It’s Clean?", url: "house-smells-bad.html" },
+  { title: "Why Does My Kitchen Sink Smell Bad?", url: "kitchen-sink-smells-bad.html" },
+  { title: "How to Find the Source of a Bad Smell in Your House", url: "how-to-find-the-source-of-a-bad-smell-in-your-house.html" },
+  { title: "Why Does My Washing Machine Smell Bad?", url: "why-does-my-washing-machine-smell-bad.html" },
+
+  // Electricity & Energy Problems
+  { title: "Why Is My Electricity Bill So High?", url: "high-electricity-bill-causes-and-solutions.html" },
+  { title: "Why Light Bulbs Burn Out Quickly and What Is the Best Alternative", url: "why-light-bulbs-burn-out-quickly-and-what-is-the-best-alternative.html" },
+  { title: "Why Do Appliances Consume Electricity Even When Turned Off?", url: "why-do-appliances-consume-electricity-even-when-turned-off.html" },
+  { title: "How to Choose the Right Lighting for Your Home", url: "how-to-choose-the-right-lighting-for-your-home.html" },
+  { title: "Why Does My Power Go Out Frequently in My House?", url: "why-does-my-power-go-out-frequently-in-my-house.html" },
+
+  // Humidity & Mold Problems
+  { title: "Humidity Problems in Homes and How to Fix Them", url: "humidity-problems-in-homes-and-how-to-fix-them.html" },
+  { title: "Why Does Mold Keep Coming Back After Cleaning?", url: "why-does-mold-keep-coming-back-after-cleaning.html" },
+  { title: "How to Reduce Humidity in a House Naturally", url: "how-to-reduce-humidity-in-a-house-naturally.html" },
+  { title: "Why Is Humidity Worse at Night Inside Homes?", url: "why-is-humidity-worse-at-night-inside-homes.html" },
+  { title: "How to Get Rid of Mold Without Damaging Walls", url: "how-to-get-rid-of-mold-without-damaging-walls.html" },
+
+  // Plumbing Problems
+  { title: "Why Plumbing Problems Are So Common in Homes", url: "why-plumbing-problems-are-so-common-in-homes.html" },
+  { title: "Why Does My Sink Drain So Slowly?", url: "why-does-my-sink-drain-so-slowly.html" },
+  { title: "How to Unclog Drains Without Damaging Pipes", url: "how-to-unclog-drains-without-damaging-pipes.html" },
+  { title: "How to Maintain Home Plumbing Systems Properly", url: "how-to-maintain-home-plumbing-systems-properly.html" },
+
+  // Furniture Care & Maintenance
+  { title: "How to Take Care of Your Furniture at Home", url: "how-to-take-care-of-furniture-at-home.html" },
+  { title: "Why Does Leather Furniture Wear Out Quickly and How to Fix It", url: "why-does-leather-furniture-wear-out-quickly-and-how-to-fix-it.html" },
+  { title: "Why Does Wooden Furniture Crack or Warp Over Time?", url: "why-does-wooden-furniture-crack-or-warp-over-time.html" },
+  { title: "Why Does Furniture Fade When Exposed to Sunlight?", url: "why-does-furniture-fade-when-exposed-to-sunlight.html" },
+  { title: "How to Clean Furniture Without Damaging the Surface?", url: "how-to-clean-furniture-without-damaging-the-surface.html" },
+
+  // Other Home Guides
+  { title: "How to Care for Indoor Plants at Home", url: "how-to-care-for-indoor-plants-at-home.html" },
+  { title: "How to Care for Glass at Home Properly", url: "how-to-care-for-glass-at-home.html" },
+  { title: "Proper Ways to Clean Kitchen Utensils Safely", url: "proper-ways-to-clean-kitchen-utensils.html" },
+  { title: "How to Properly Store Canned Food After Opening", url: "how-to-properly-store-canned-food-after-opening.html" },
+  { title: "Why Is My Internet Slow Even When Everything Seems Fine?", url: "why-is-my-internet-slow-even-when-everything-seems-fine.html" },
+  { title: "Why Do Door Keys Wear Out Quickly and How to Fix the Problem", url: "why-do-door-keys-wear-out-quickly-and-how-to-fix-the-problem.html" },
+  { title: "Common Household Insects and How to Get Rid of Them?", url: "common-household-insects-and-how-to-get-rid-of-them.html" }
+
+];
+
+
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+
+  if (!input || !results) return;
+
+  input.addEventListener("input", function () {
+    const query = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (query.length < 2) return;
+
+    articles
+      .filter(article => article.title.toLowerCase().includes(query))
+      .forEach(article => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${article.url}">${article.title}</a>`;
+        results.appendChild(li);
+      });
+  });
+
+});
+</script>
+
 <body>
 
 <header class="site-header">
@@ -27,6 +102,19 @@
   </div>
 </header>
 
+  <!-- SEARCH -->
+<section class="site-search">
+  <h2>Search the site</h2>
+
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search for a home problem (smell, electricity, humidity...)"
+  />
+
+  <ul id="searchResults"></ul>
+</section>
+
 <main class="container article-content">
 
   <!-- BAD SMELLS -->
@@ -36,7 +124,7 @@
       <li><a href="room-smells-bad-at-night.html">Why Does My Room Smell Bad at Night?</a></li>
       <li><a href="house-smells-bad.html">Why Does My House Smell Bad Even When It’s Clean?</a></li>
       <li><a href="kitchen-sink-smells-bad.html">Why Does My Kitchen Sink Smell Bad?</a></li>
-      <li><a href="how-to-find-the-source-of-a-bad-smell-in-your-house.html">How to Find the Source of a Bad Smell in Your House?</a></li>
+      <li><a href="how-to-find-the-source-of-a-bad-smell-in-your-house.html">How to Find the Source of a Bad Smell in Your House</a></li>
       <li><a href="why-does-my-washing-machine-smell-bad.html">Why Does My Washing Machine Smell Bad?</a></li>
 
     </ul>
@@ -46,11 +134,14 @@
   <section>
     <h2>Electricity & Energy Problems</h2>
     <ul>
+
+      
       <li><a href="high-electricity-bill-causes-and-solutions.html">Why Is My Electricity Bill So High?</a></li>
-      <li><a href="why-light-bulbs-burn-out-quickly-and-what-is-the-best-alternative.html"> Why Light Bulbs Burn Out Quickly and What Is the Best Alternative </a></li>
+      <li><a href="why-light-bulbs-burn-out-quickly-and-what-is-the-best-alternative.html">Why Light Bulbs Burn Out Quickly and What Is the Best Alternative</a></li>
       <li><a href="why-do-appliances-consume-electricity-even-when-turned-off.html">why do appliances consume electricity even when turned off?</a></li>
-     <li><a href="how-to-choose-the-right-lighting-for-your-home.html">How to Choose the Right Lighting for Your Home?</a></li>
-    <li><a href="why-does-my-power-go-out-frequently-in-my-house.html">Why Does My Power Go Out Frequently in My House?</a></li>
+      <li><a href="how-to-choose-the-right-lighting-for-your-home.html">How to Choose the Right Lighting for Your Home</a></li>
+      <li><a href="why-does-my-power-go-out-frequently-in-my-house.html">Why Does My Power Go Out Frequently in My House?</a></li>
+
 
     </ul>
   </section>
@@ -59,14 +150,11 @@
   <section>
     <h2>Humidity & Mold Problems</h2>
     <ul>
-      <li><a href="humidity-problems-in-homes-and-how-to-fix-them.html"> Humidity Problems in Homes and How to Fix Them ?</a></li>
+      <li><a href="humidity-problems-in-homes-and-how-to-fix-them.html"> Humidity Problems in Homes and How to Fix Them</a></li>
       <li><a href="why-does-mold-keep-coming-back-after-cleaning.html">Why Does Mold Keep Coming Back After Cleaning?</a></li>
       <li><a href="how-to-reduce-humidity-in-a-house-naturally.html"> How to Reduce Humidity in a House Naturally</a></li>
       <li><a href="why-is-humidity-worse-at-night-inside-homes.html">Why Is Humidity Worse at Night Inside Homes?</a></li>
-      <li><a href="how-to-get-rid-of-mold-without-damaging-walls.html">How to Get Rid of Mold Without Damaging Walls?</a></li>
-
-
-
+      <li><a href="how-to-get-rid-of-mold-without-damaging-walls.html">How to Get Rid of Mold Without Damaging Walls</a></li>
 
     </ul>
   </section>
@@ -76,15 +164,13 @@
     <h2>Plumbing Problems</h2>
     <ul>
       <li><a href="kitchen-sink-smells-bad.html">Why Does My Kitchen Sink Smell Bad?</a></li>
-      <li><a href="why-plumbing-problems-are-so-common-in-homes.html">Why Plumbing Problems Are So Common in Homes?</a></li>
+      <li><a href="why-plumbing-problems-are-so-common-in-homes.html">Why Plumbing Problems Are So Common in Homes</a></li>
       <li><a href="why-does-my-sink-drain-so-slowly.html">Why Does My Sink Drain So Slowly?</a></li>
-      <li><a href="how-to-unclog-drains-without-damaging-pipes.html">How to Unclog Drains Without Damaging Pipes?</a></li>
-      <li><a href="how-to-maintain-home-plumbing-systems-properly.html">How to Maintain Home Plumbing Systems Properly?</a></li>
+      <li><a href="how-to-unclog-drains-without-damaging-pipes.html">How to Unclog Drains Without Damaging Pipes</a></li>
+      <li><a href="how-to-maintain-home-plumbing-systems-properly.html">How to Maintain Home Plumbing Systems Properly</a></li>
 
 
 
-
-      
     </ul>
   </section>
 
@@ -92,8 +178,8 @@
   <section>
     <h2>Furniture Care & Maintenance</h2>
     <ul>
-      <li><a href="how-to-take-care-of-furniture-at-home.html">How to Take Care of Your Furniture at Home?</a></li>
-      <li><a href="why-does-leather-furniture-wear-out-quickly-and-how-to-fix-it.html">Why Does Leather Furniture Wear Out Quickly and How to Fix It?</a></li>
+      <li><a href="how-to-take-care-of-furniture-at-home.html">How to Take Care of Your Furniture at Home</a></li>
+      <li><a href="why-does-leather-furniture-wear-out-quickly-and-how-to-fix-it.html">Why Does Leather Furniture Wear Out Quickly and How to Fix It</a></li>
       <li><a href="why-does-wooden-furniture-crack-or-warp-over-time.html">Why Does Wooden Furniture Crack or Warp Over Time?</a></li>
       <li><a href="why-does-furniture-fade-when-exposed-to-sunlight.html">Why Does Furniture Fade When Exposed to Sunlight?</a></li>
       <li><a href="how-to-clean-furniture-without-damaging-the-surface.html">How to Clean Furniture Without Damaging the Surface?</a>
@@ -101,8 +187,6 @@
 
 
 
-
-      
     </ul>
   </section>
 
@@ -110,20 +194,12 @@
   <section>
     <h2>Other Home Guides</h2>
     <ul>
-      <li><a href="how-to-care-for-indoor-plants-at-home.html">How to Care for Indoor Plants at Home?</a></li>
-      <li><a href="how-to-care-for-glass-at-home.html">How to Care for Glass at Home Properly?</a></li>
-      <li><a href="proper-ways-to-clean-kitchen-utensils.html">
-        Proper Ways to Clean Kitchen Utensils Safely?
-      </a></li>
-      <li><a href="how-to-properly-store-canned-food-after-opening.html">
-        How to Properly Store Canned Food After Opening?
-      </a></li>
-      <li><a href="why-is-my-internet-slow-even-when-everything-seems-fine.html">
-        Why Is My Internet Slow Even When Everything Seems Fine?
-      </a></li>
-      <li><a href="why-do-door-keys-wear-out-quickly-and-how-to-fix-the-problem.html">
-        Why Do Door Keys Wear Out Quickly and How to Fix the Problem?
-      </a></li>
+      <li><a href="how-to-care-for-indoor-plants-at-home.html">How to Care for Indoor Plants at Home</a></li>
+      <li><a href="how-to-care-for-glass-at-home.html">How to Care for Glass at Home Properly</a></li>
+      <li><a href="proper-ways-to-clean-kitchen-utensils.html">Proper Ways to Clean Kitchen Utensils Safely</a></li>
+      <li><a href="how-to-properly-store-canned-food-after-opening.html">How to Properly Store Canned Food After Opening</a></li>
+      <li><a href="why-is-my-internet-slow-even-when-everything-seems-fine.html">Why Is My Internet Slow Even When Everything Seems Fine?</a></li>
+      <li><a href="why-do-door-keys-wear-out-quickly-and-how-to-fix-the-problem.html">Why Do Door Keys Wear Out Quickly and How to Fix the Problem</a></li>
       <li><a href="common-household-insects-and-how-to-get-rid-of-them.html">common household insects and how to get rid of them?</a></li>
     </ul>
   </section>
@@ -143,22 +219,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
