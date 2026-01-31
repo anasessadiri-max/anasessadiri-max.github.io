@@ -76,6 +76,41 @@
     }
   });
 </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const articles = [
+    { title: "Why Does My Room Smell Bad at Night?", url: "room-smells-bad-at-night.html" },
+    { title: "Why Does My House Smell Bad Even When It’s Clean?", url: "house-smells-bad.html" },
+    { title: "Why Does My Kitchen Sink Smell Bad?", url: "kitchen-sink-smells-bad.html" },
+    { title: "Why Is My Electricity Bill So High?", url: "high-electricity-bill-causes-and-solutions.html" },
+    { title: "Why Does My Power Go Out Frequently in My House?", url: "why-does-my-power-go-out-frequently-in-my-house.html" },
+    { title: "Humidity Problems in Homes and How to Fix Them", url: "humidity-problems-in-homes-and-how-to-fix-them.html" }
+  ];
+
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+
+  if (!input || !results) return;
+
+  input.addEventListener("input", function () {
+    const query = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (query.length < 2) return;
+
+    articles
+      .filter(article => article.title.toLowerCase().includes(query))
+      .forEach(article => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${article.url}">${article.title}</a>`;
+        results.appendChild(li);
+      });
+  });
+
+});
+</script>
 </head>
 <body>
 
@@ -130,6 +165,19 @@
   Most people start with these categories below 
 </p>
   </section>
+
+      <!-- SEARCH -->
+<section class="site-search">
+  <h2>Search the site</h2>
+
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search for a home problem (smell, electricity, humidity...)"
+  />
+
+  <ul id="searchResults"></ul>
+</section>
 
 <!--PILLARS-->
     <section class="pillars">
@@ -235,6 +283,7 @@
 
 </body>
 </html>
+
 
 
 
